@@ -1,19 +1,18 @@
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { ColorModeContext, useMode, themes } from "./themes/themes";
+import { ColorModeContext, useMode } from "./theme/themes";
 import { CssBaseline, ThemeProvider } from "@mui/material";
+// import { Toaster } from "react-hot-toast";
+import  HomePage  from './Pages/HomePage';
+
+import Router from "./Routes";
 
 export default function App() {
   const [theme, colorMode] = useMode();
   return (
-    <ColorModeContext.Provider value={colorMode}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <HelmetProvider>
-          HI METAKUL
-      </HelmetProvider>
-    </ThemeProvider>
-    </ColorModeContext.Provider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
 
   );
 }
